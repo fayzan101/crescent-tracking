@@ -251,7 +251,7 @@ const provinces = [
     clients: 350, 
     vehicles: 3500, 
     color: "#eb3b5a",
-    iconSrc: "/Icons/kPKCardIcon.svg"
+    iconSrc: "/Icons/KPKCardIcon.svg"
   },
   { 
     name: "Fata & GB", 
