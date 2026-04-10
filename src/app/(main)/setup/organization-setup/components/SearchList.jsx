@@ -151,7 +151,7 @@ const SearchList = ({
           onClick={() => setShowFilterPanel(!showFilterPanel)}
           className="cursor-pointer inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-8 py-2.5 text-md font-lexend text-gray-700 transition hover:bg-gray-50 h-full relative"
         >
-          <Image src="/icons/filter.svg" alt="Filter Icon" width={22} height={22} />
+          <Image src="/icons/FilterIcon.svg" alt="Filter Icon" width={22} height={22} />
           Filter
           {(filterActive !== null || sortBy !== "default") && (
             <span className="absolute -top-2 -right-2 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-semibold">
