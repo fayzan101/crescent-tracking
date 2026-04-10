@@ -29,6 +29,7 @@ const Sidebar = () => {
   const router = useRouter();
   const [dashboardOpen, setDashboardOpen] = useState(true);
   const [setupOpen, setSetupOpen] = useState(true);
+  const [pagesOpen, setPagesOpen] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const refreshToken = useSelector((state) => state.user?.refreshToken);
@@ -185,16 +186,27 @@ const Sidebar = () => {
 
             {/* Pages Section */}
             <div className="mt-6">
-              <div className="px-3 mb-2">
-                <span className="text-xs font-semibold uppercase text-gray-400 tracking-wider">Pages</span>
-              </div>
-              <div className="space-y-1">
-                <MenuItem icon={MapPin} label="Geofence" href="/dashboard/geofence" />
-                <MenuItem icon={Boxes} label="Inventory" href="/dashboard/inventory" />
-                <MenuItem icon={Wallet} label="Finance & Accounts" href="/dashboard/finance" />
-                <MenuItem icon={UtilityPole} label="RoboCall" href="/dashboard/robocall" />
-                <MenuItem icon={Bell} label="Complaints" href="/dashboard/complaints" />
-              </div>
+              <button
+                onClick={() => setPagesOpen(!pagesOpen)}
+                className="flex items-center justify-between w-full px-3 py-2.5 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <FileText className="w-5 h-5 text-gray-700" />
+                  <span className="font-medium text-gray-700">Pages</span>
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${pagesOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {pagesOpen && (
+                <div className="mt-1 ml-8 space-y-1">
+                  <MenuItem icon={MapPin} label="Geofence" href="/dashboard/geofence" />
+                  <MenuItem icon={Boxes} label="Inventory" href="/dashboard/inventory" />
+                  <MenuItem icon={Wallet} label="Finance & Accounts" href="/dashboard/finance" />
+                  <MenuItem icon={UtilityPole} label="RoboCall" href="/dashboard/robocall" />
+                  <MenuItem icon={Bell} label="Complaints" href="/dashboard/complaints" />
+                </div>
+              )}
             </div>
 
 
