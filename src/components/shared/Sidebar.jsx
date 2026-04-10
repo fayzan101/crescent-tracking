@@ -28,6 +28,7 @@ const Sidebar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [dashboardOpen, setDashboardOpen] = useState(true);
+  const [setupOpen, setSetupOpen] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const refreshToken = useSelector((state) => state.user?.refreshToken);
@@ -196,16 +197,28 @@ const Sidebar = () => {
               </div>
             </div>
 
+
             {/* Setup Section */}
             <div className="mt-6">
-              <div className="px-3 mb-2">
-                <span className="text-xs font-semibold uppercase text-gray-400 tracking-wider">Setup</span>
-              </div>
-              <div className="space-y-1">
-                <MenuItem icon={Bell} label="Notifications" href="/dashboard/notifications" />
-                <MenuItem icon={Building2} label="Organization Setup" href="/setup/organization-setup" />
-                <MenuItem icon={FileText} label="Reports" href="/dashboard/reports" />
-              </div>
+              <button
+                onClick={() => setSetupOpen(!setupOpen)}
+                className="flex items-center justify-between w-full px-3 py-2.5 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <Building2 className="w-5 h-5 text-gray-700" />
+                  <span className="font-medium text-gray-700">Setup</span>
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${setupOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {setupOpen && (
+                <div className="mt-1 ml-8 space-y-1">
+                  <MenuItem icon={Bell} label="Notifications" href="/dashboard/notifications" />
+                  <MenuItem icon={Building2} label="Organization Setup" href="/setup/organization-setup" />
+                  <MenuItem icon={FileText} label="Reports" href="/dashboard/reports" />
+                </div>
+              )}
             </div>
 
           </nav>
