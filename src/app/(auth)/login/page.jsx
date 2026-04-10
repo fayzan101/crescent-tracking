@@ -232,20 +232,7 @@ const SignInForm = () => {
                             {(isLoading || isPending) ? 'SIGNING IN...' : 'SIGN IN'}
                         </button>
 
-                        <div className="text-center pt-3 sm:pt-4 border-t border-gray-100">
-                            <p className="text-xs sm:text-sm text-gray-600">
-                                Don't have an account?{" "}
-                                <span
-                                    className="font-medium sm:font-semibold text-[#DA1F63] hover:text-[#E93B77] cursor-pointer transition-colors"
-                                    onClick={() => router.push("/signup")}
-                                    tabIndex={0}
-                                    role="button"
-                                    onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') router.push("/signup"); }}
-                                >
-                                    Sign Up
-                                </span>
-                            </p>
-                        </div>
+                        
 
                     </form>
                 </div>
